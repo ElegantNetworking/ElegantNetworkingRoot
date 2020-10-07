@@ -1,0 +1,5 @@
+rootProject.name = 'ElegantNetworkingRoot'
+includeFlat 'ElegantNetworkingCommon'
+includeFlat 'ElegantNetworkingAnnotationProcessor'
+includeFlat 'ElegantNetworking_1.12'
+

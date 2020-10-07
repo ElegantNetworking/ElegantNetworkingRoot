@@ -1,0 +1,13 @@
+apply plugin: 'java'
+
+group 'hohserg.elegant.networking'
+version '1.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}
