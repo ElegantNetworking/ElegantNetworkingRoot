@@ -19,8 +19,8 @@ jobs:
     
     - uses: actions/checkout@master
       with:
-        repository: ElegantNetworking/ElegantNetworkingAnnotationProcessor
-        ref: refs/heads/release
+        name: ElegantNetworking/ElegantNetworkingAnnotationProcessor
+        
     
     - uses: actions/checkout@master
       with:
