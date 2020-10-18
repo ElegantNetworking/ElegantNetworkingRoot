@@ -40,7 +40,9 @@ jobs:
         java-version: 1.8
     - name: Grant execute permission for gradlew
       run: chmod +x ./ElegantNetworkingRoot/gradlew
+    - name: Set Working directory
+      run: cd ./ElegantNetworkingRoot
     - name: Setup forge mdk
-      run: ./ElegantNetworkingRoot/gradlew :ElegantNetworking_1.12:setupDecompWorkspace
+      run: ./gradlew :ElegantNetworking_1.12:setupDecompWorkspace
     - name: Build with Gradle
-      run: ./ElegantNetworkingRoot/gradlew build
+      run: ./gradlew build
