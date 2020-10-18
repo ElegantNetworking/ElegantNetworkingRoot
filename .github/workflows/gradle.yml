@@ -15,9 +15,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@master
       with:
-        #repository: ElegantNetworking/ElegantNetworkingRoot
+        repository: ElegantNetworking/ElegantNetworkingRoot
         path: ./ElegantNetworkingRoot
     
     - uses: actions/checkout@master
@@ -40,20 +40,14 @@ jobs:
       with:
         java-version: 1.8
     
-    - name: Set Working directory
-      run: cd /home/runner/work/ElegantNetworkingRoot/ElegantNetworkingRoot/ElegantNetworkingRoot/
-    
     - name: Show Working directory
       run: ls
     
-    - run: cd ./ElegantNetworkingRoot/
-    - run: ls
-    
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      run: chmod +x ./ElegantNetworkingRoot/gradlew
 
     - name: Setup forge mdk
-      run: ./gradlew :ElegantNetworking_1.12:setupDecompWorkspace
+      run: ./ElegantNetworkingRoot/gradlew --project-dir ./ElegantNetworkingRoot/ :ElegantNetworking_1.12:setupDecompWorkspace
     
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./ElegantNetworkingRoot/gradlew --project-dir ./ElegantNetworkingRoot/ build
