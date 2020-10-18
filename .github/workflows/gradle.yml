@@ -19,7 +19,8 @@ jobs:
     
     - uses: actions/checkout@master
       with:
-        name: ElegantNetworking/ElegantNetworkingAnnotationProcessor
+        repository: ElegantNetworking/ElegantNetworkingAnnotationProcessor
+        path: /home/runner/work/ElegantNetworkingRoot/ElegantNetworkingAnnotationProcessor
     
     - uses: actions/checkout@master
       with:
