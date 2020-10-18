@@ -41,7 +41,7 @@ jobs:
         java-version: 1.8
     
     - name: Set Working directory
-      run: cd ./ElegantNetworkingRoot
+      run: cd /home/runner/work/ElegantNetworkingRoot/ElegantNetworkingRoot/ElegantNetworkingRoot/
     
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
