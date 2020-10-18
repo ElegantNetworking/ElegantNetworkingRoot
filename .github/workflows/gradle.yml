@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         repository: ElegantNetworking/ElegantNetworkingRoot
-        path: ./ElegantNetworkingRoot
+        #path: ./ElegantNetworkingRoot
     
     - uses: actions/checkout@master
       with:
