@@ -35,7 +35,7 @@ And that's all you need!
 + Design of api is offers to do not depend on the version of Minecraft
 + Compatible with obfuscators(less tested)
 
-## How to contribute
+## How to setup workspace for contrubuting
 1. Create folder, i.e. `ElegantNetworking`
 2. `git clone https://github.com/ElegantNetworking/ElegantNetworkingRoot.git`
 3. `git clone https://github.com/ElegantNetworking/ElegantNetworkingCommon.git`
@@ -44,3 +44,7 @@ And that's all you need!
 6. `cd ElegantNetworkingRoot`
 7. `gradlew :ElegantNetworking_1.12:setupDecompWorkspace`
 8. Import `ElegantNetworkingRoot` gradle project into your IDE
+9. ???
+10. Use `gradlew :ElegantNetworking_1.12:runClient` for run game
+11. Use `gradlew :ElegantNetworking_1.12:build` for build runtime library
+12. Use `gradlew :ElegantNetworkingAnnotationProcessor:shadowJar` for build annotation processor
