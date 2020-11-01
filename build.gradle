@@ -1,6 +1,6 @@
 apply plugin: 'java'
 
-group 'hohserg.elegant.networking'
+group 'io.gitlab.hohserg.elegant.networking'
 version '1.0'
 
 sourceCompatibility = 1.8
