@@ -11,3 +11,8 @@ repositories {
 
 dependencies {
 }
+
+task publishAll {
+    dependsOn ":ElegantNetworking_1.12:uploadArchives"
+    dependsOn ":ElegantNetworkingAnnotationProcessor:uploadArchives"
+}
