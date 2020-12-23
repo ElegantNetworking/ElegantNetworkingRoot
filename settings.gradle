@@ -3,4 +3,8 @@ includeFlat 'ElegantNetworkingCommon'
 includeFlat 'ElegantNetworkingAnnotationProcessor'
 includeFlat 'ElegantNetworking_1.12'
 includeFlat 'ElegantNetworking_1.7.10'
+includeFlat 'ElegantNetworking_1.14'
+includeFlat 'ElegantNetworking_1.15'
+includeFlat 'ElegantNetworking_1.16'
+
 

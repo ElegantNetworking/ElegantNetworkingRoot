@@ -3,6 +3,8 @@ apply plugin: 'java'
 group 'io.gitlab.hohserg.elegant.networking'
 version '1.0'
 
+ext.testBuild = true
+
 sourceCompatibility = 1.8
 
 repositories {
@@ -12,8 +14,13 @@ repositories {
 dependencies {
 }
 
-task publishAll {
-    dependsOn ":ElegantNetworking_1.12:uploadArchives"
+task publishAll_Libs {
     dependsOn ":ElegantNetworking_1.7.10:uploadArchives"
+    dependsOn ":ElegantNetworking_1.12:uploadArchives"
+    dependsOn ":ElegantNetworking_1.14:uploadArchives"
+    dependsOn ":ElegantNetworking_1.15:uploadArchives"
+    dependsOn ":ElegantNetworking_1.16:uploadArchives"
+}
+task publishAnnotationProcessor {
     dependsOn ":ElegantNetworkingAnnotationProcessor:uploadArchives"
 }
