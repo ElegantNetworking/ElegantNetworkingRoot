@@ -9,7 +9,8 @@ Example of packet declaration:
 public class PacketExample implements ClientToServerPacket {
     int someValue1;
     MyClass someValue2;
-    Map<String, MyClass> someValue3;
+    IMyInterface someValue3;
+    Map<String, MyClass> someValue4;
 
     @Override
     public void onReceive(EntityPlayerMP player, INetHandlerPlayServer handler) {
@@ -19,7 +20,7 @@ public class PacketExample implements ClientToServerPacket {
 ```
 And usage of packet:
 ```java
-new PacketExample(1, new MyClass(...), ImmutableMap.of(...)).sendToServer();
+new PacketExample(1, new MyClass(...), new ImplOfMyInterface(...), ImmutableMap.of(...)).sendToServer();
 ```
 And that's all you need!
 
