@@ -51,16 +51,27 @@ annotationProcessor 'org.projectlombok:lombok:1.18.8', "io.gitlab.hohserg.elegan
 ```
 ### Creating packet
 1. Create new class for packet
+
 If your packet must be sended from client to server than it must implement ClientToServerPacket
+
 If your packet must be sended from server to client than it must implement ServerToClientPacket
+
 2. `onReceive` method will be called when packet is received
+
 3. Mark you packet class with @ElegantPacket annotation
+
 Optionaly, you can specify a channel name for packet (have sense if your jar contains more that one mod)
+
 4. Add fields that represent transmitted information
+
 Able to use Lombok to generate useful constructor, getters and setters
+
 5 Optionaly, you can override logic of serialization. 
+
 Override `serialize` method, it must write data to `ByteBuf` argument.
+
 And add a unserialization-constructor with single argument `ByteBuf`, it must read data from `ByteBuf`.
+
 Example:
 ```java
 @ElegantPacket
