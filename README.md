@@ -31,7 +31,7 @@ And that's all you need!
 + Automatic serialization/deserialization
   * supported primitives, collections, data-classes(POJO) and algebric data types overall
   * exists able to override logic of serialization
-+ Structure of sendable data and receiving handler is localised in one place
++ Sendable data structure and receiving handler is localised in one place
   * one packet - one class
 + Design of api is offers to do not depend on the version of Minecraft
 + Compatible with obfuscators(less tested)
