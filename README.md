@@ -98,8 +98,13 @@ new ExamplePacket(1, ImmutableMap.of(new MyClass("test"), "lol")).sendToDimensio
 
 ## Gratitudes
 Thx @Dahaka934 for discussion and review
+
 Thx @tox1cozZ for drew my attention to the annotation processors
+
 Thx @Plasticable for advice of using gradle 4.4.1 (not actualy, but helpful in due time)
+
 Thx @Icosider for consulting about gradle configuration
+
 Thx @AmaZ1nG for idea about serialization of nbt and other basic types that useful in modding
+
 Thx @CDAGaming for the fork of FG2.1 that compatible with gradle 5+
