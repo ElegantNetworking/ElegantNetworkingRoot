@@ -120,3 +120,5 @@ Thx @Icosider for consulting about gradle configuration
 Thx @AmaZ1nG for idea about serialization of nbt and other basic types that useful in modding
 
 Thx @CDAGaming for the fork of FG2.1 that compatible with gradle 5+
+
+Thx @Liahim85 for pretty logo
