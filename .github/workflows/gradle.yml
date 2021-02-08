@@ -27,6 +27,21 @@ jobs:
     
     - uses: actions/checkout@master
       with:
+        repository: ElegantNetworking/ElegantNetworking_1.16
+        path: ./ElegantNetworking_1.16
+    
+    - uses: actions/checkout@master
+      with:
+        repository: ElegantNetworking/ElegantNetworking_1.15
+        path: ./ElegantNetworking_1.15
+    
+    - uses: actions/checkout@master
+      with:
+        repository: ElegantNetworking/ElegantNetworking_1.14
+        path: ./ElegantNetworking_1.14
+        
+    - uses: actions/checkout@master
+      with:
         repository: ElegantNetworking/ElegantNetworking_1.12
         path: ./ElegantNetworking_1.12
         
