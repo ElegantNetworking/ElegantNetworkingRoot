@@ -100,13 +100,11 @@ new ExamplePacket(1, ImmutableMap.of(new MyClass("test"), "lol")).sendToDimensio
 3. `git clone https://github.com/ElegantNetworking/ElegantNetworkingCommon.git`
 4. `git clone https://github.com/ElegantNetworking/ElegantNetworkingAnnotationProcessor.git`
 5. `git clone https://github.com/ElegantNetworking/ElegantNetworking_1.16.git`
-6. `cd ElegantNetworkingRoot`
-7. `gradlew :ElegantNetworking_1.16:setupDecompWorkspace`
-8. Import `ElegantNetworkingRoot` gradle project into your IDE
-9. ???
-10. Use `gradlew :ElegantNetworking_1.16:runClient` for run game
-11. Use `gradlew :ElegantNetworking_1.16:build` for build runtime library
-12. Use `gradlew :ElegantNetworkingAnnotationProcessor:shadowJar` for build annotation processor
+6. Import `ElegantNetworkingRoot` gradle project into your IDE
+7. `cd ElegantNetworkingRoot`
+8. Use `gradlew :ElegantNetworking_1.16:runClient` for run game
+9. Use `gradlew :ElegantNetworking_1.16:build` for build runtime library
+10. Use `gradlew :ElegantNetworkingAnnotationProcessor:shadowJar` for build annotation processor
 
 ## Gratitudes
 Thx @Dahaka934 for discussion and review
