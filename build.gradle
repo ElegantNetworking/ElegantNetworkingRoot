@@ -24,3 +24,8 @@ task publishAll_Libs {
 task publishAnnotationProcessor {
     dependsOn ":ElegantNetworkingAnnotationProcessor:uploadArchives"
 }
+
+task publishAllArtifacts {
+    dependsOn "publishAll_Libs"
+    dependsOn "publishAnnotationProcessor"
+}
