@@ -67,7 +67,7 @@ Optionaly, you can specify a channel name for packet (have sense if your jar con
 
 Able to use Lombok to generate useful constructor, getters and setters
 
-5 Optionaly, you can override logic of serialization. 
+5. Optionally, you can override logic of serialization. 
 
 Override `serialize` method, it must write data to `ByteBuf` argument.
 
