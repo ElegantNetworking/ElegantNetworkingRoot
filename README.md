@@ -41,8 +41,8 @@ And that's all you need!
 1. Add to build.gradle:
 ```groowy
 dependencies {
-    compile "io.gitlab.hohserg.elegant.networking:elegant-networking-1.12:2.4"
-    annotationProcessor  "io.gitlab.hohserg.elegant.networking:annotation-processor:2.7"   //use compileOnly or `apt` plugin for gradle less that 4.8
+    compile "io.gitlab.hohserg.elegant.networking:elegant-networking-1.12:3.10"
+    annotationProcessor  "io.gitlab.hohserg.elegant.networking:annotation-processor:3.10"   //use compileOnly or `apt` plugin for gradle less that 4.8
 }
 ```
 2. Perform Gradle refresh in your ide
