@@ -22,7 +22,7 @@ task publishAll_Libs {
     dependsOn ":ElegantNetworking_1.16:uploadArchives"
 }
 task publishAnnotationProcessor {
-    dependsOn ":ElegantNetworkingAnnotationProcessor:uploadArchives"
+    dependsOn ":ElegantNetworkingAnnotationProcessor:publish"
 }
 
 task publishAllArtifacts {
