@@ -7,3 +7,21 @@
 [submodule "ElegantNetworkingAnnotationProcessor"]
 	path = ElegantNetworkingAnnotationProcessor
 	url = https://github.com/ElegantNetworking/ElegantNetworkingAnnotationProcessor
+[submodule "FG5/ElegantNetworking_1.12"]
+	path = FG5/ElegantNetworking_1.12
+	url = https://github.com/ElegantNetworking/ElegantNetworking_1.12
+[submodule "FG5/ElegantNetworking_1.14"]
+	path = FG5/ElegantNetworking_1.14
+	url = https://github.com/ElegantNetworking/ElegantNetworking_1.14
+[submodule "FG5/ElegantNetworking_1.15"]
+	path = FG5/ElegantNetworking_1.15
+	url = https://github.com/ElegantNetworking/ElegantNetworking_1.15
+[submodule "FG5/ElegantNetworking_1.16"]
+	path = FG5/ElegantNetworking_1.16
+	url = https://github.com/ElegantNetworking/ElegantNetworking_1.16
+[submodule "FG5/ElegantNetworking_1.17"]
+	path = FG5/ElegantNetworking_1.17
+	url = https://github.com/ElegantNetworking/ElegantNetworking_1.17
+[submodule "FG5/ElegantNetworking_1.18"]
+	path = FG5/ElegantNetworking_1.18
+	url = https://github.com/ElegantNetworking/ElegantNetworking_1.18

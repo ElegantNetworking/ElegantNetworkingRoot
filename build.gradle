@@ -2,10 +2,3 @@ group 'io.gitlab.hohserg.elegant.networking'
 version '3.14'
 
 ext.testBuild=true
-
-
-subprojects {
-    if(this.name!='ElegantNetworking_1.7.10'){
-
-    }
-}

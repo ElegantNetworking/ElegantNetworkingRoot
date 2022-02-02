@@ -1,0 +1,11 @@
+rootProject.name = 'FG5'
+
+include(
+        'ElegantNetworking_1.12',
+        'ElegantNetworking_1.14',
+        'ElegantNetworking_1.15',
+        'ElegantNetworking_1.16',
+        'ElegantNetworking_1.17',
+        'ElegantNetworking_1.18'
+)
+
