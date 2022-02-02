@@ -1,17 +1,18 @@
 rootProject.name = 'ElegantNetworking'
 
+include 'FG5'
+
 include(
         'ElegantNetworkingAnnotationProcessor',
 
         'ElegantNetworking_1.7.10',
-        'ElegantNetworking_1.12',
-        'ElegantNetworking_1.14',
-        'ElegantNetworking_1.15',
-        'ElegantNetworking_1.16',
-        'ElegantNetworking_1.17',
-        'ElegantNetworking_1.18'
+        'FG5:ElegantNetworking_1.12',
+        'FG5:ElegantNetworking_1.14',
+        'FG5:ElegantNetworking_1.15',
+        'FG5:ElegantNetworking_1.16',
+        'FG5:ElegantNetworking_1.17',
+        'FG5:ElegantNetworking_1.18'
 )
 include '_ElegantNetworkingCommon'
 project(':_ElegantNetworkingCommon').projectDir = file("ElegantNetworkingCommon")
-include 'FG5'
 
