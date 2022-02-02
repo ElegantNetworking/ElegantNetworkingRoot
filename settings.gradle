@@ -1,11 +1,17 @@
-rootProject.name = 'ElegantNetworkingRoot'
-includeFlat 'ElegantNetworkingCommon'
-includeFlat 'ElegantNetworkingAnnotationProcessor'
+rootProject.name = 'ElegantNetworking'
 
-includeFlat 'ElegantNetworking_1.7.10'
-includeFlat 'ElegantNetworking_1.12'
-includeFlat 'ElegantNetworking_1.14'
-includeFlat 'ElegantNetworking_1.15'
-includeFlat 'ElegantNetworking_1.16'
+include(
+        'ElegantNetworkingAnnotationProcessor',
 
+        'ElegantNetworking_1.7.10',
+        'ElegantNetworking_1.12',
+        'ElegantNetworking_1.14',
+        'ElegantNetworking_1.15',
+        'ElegantNetworking_1.16',
+        'ElegantNetworking_1.17',
+        'ElegantNetworking_1.18'
+)
+include '_ElegantNetworkingCommon'
+project(':_ElegantNetworkingCommon').projectDir = file("ElegantNetworkingCommon")
+include 'FG5'
 

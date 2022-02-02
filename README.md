@@ -41,7 +41,7 @@ And that's all you need!
 1. Add to build.gradle:
 ```groowy
 dependencies {
-    compile "io.gitlab.hohserg.elegant.networking:elegant-networking-1.12:3.10"
+    implementation "io.gitlab.hohserg.elegant.networking:elegant-networking-1.12:3.10"
     annotationProcessor  "io.gitlab.hohserg.elegant.networking:annotation-processor:3.10"   //use compileOnly or `apt` plugin for gradle less that 4.8
 }
 ```
