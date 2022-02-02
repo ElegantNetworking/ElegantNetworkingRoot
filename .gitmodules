@@ -1,9 +1,6 @@
 [submodule "ElegantNetworkingCommon"]
 	path = ElegantNetworkingCommon
 	url = https://github.com/ElegantNetworking/ElegantNetworkingCommon
-[submodule "ElegantNetworking_1.7.10"]
-	path = ElegantNetworking_1.7.10
-	url = https://github.com/ElegantNetworking/ElegantNetworking_1.7.10
 [submodule "ElegantNetworkingAnnotationProcessor"]
 	path = ElegantNetworkingAnnotationProcessor
 	url = https://github.com/ElegantNetworking/ElegantNetworkingAnnotationProcessor
