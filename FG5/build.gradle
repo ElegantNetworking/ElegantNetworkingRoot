@@ -1,6 +1,226 @@
+buildscript {
+    repositories {
+        maven {
+            name = "forge"
+            url = "https://maven.minecraftforge.net/"
+        }
+        maven {
+            url = 'https://repo.spongepowered.org/maven'
+        }
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:5.1.27'
+        classpath('com.anatawa12.forge:ForgeGradle:1.2-1.0.+') {
+            changing = true
+        }
+    }
+}
+
 group 'io.gitlab.hohserg.elegant.networking'
-version '3.14'
 
 subprojects {
+    println("project properties: mc_version=${mc_version}, mappings=(${mappings_channel}, ${mappings_version}), forge_version=${forge_version}")
 
+    def fg5 = this.name != "ElegantNetworking_1.7.10"
+    if (fg5) {
+        apply plugin: 'net.minecraftforge.gradle'
+        apply plugin: 'eclipse'
+        apply plugin: 'maven-publish'
+        apply plugin: 'signing'
+    }
+
+    version = "3.14"
+    group = 'io.gitlab.hohserg.elegant.networking'
+    archivesBaseName = "elegant-networking-${mc_version}"
+
+
+    if (fg5) {
+        minecraft {
+            mappings channel: mappings_channel, version: mappings_version
+
+            runs {
+                client {
+                    workingDirectory project.file('run')
+                    property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+                    property 'forge.logging.console.level', 'debug'
+
+                    mods {
+                        examplemod {
+                            source sourceSets.main
+                            source project(':_ElegantNetworkingCommon').sourceSets.main
+                        }
+                    }
+                }
+
+                server {
+                    workingDirectory project.file('run')
+                    property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+                    property 'forge.logging.console.level', 'debug'
+
+                    mods {
+                        examplemod {
+                            source sourceSets.main
+                            source project(':_ElegantNetworkingCommon').sourceSets.main
+                        }
+                    }
+                }
+
+                data {
+                    workingDirectory project.file('run')
+                    property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+                    property 'forge.logging.console.level', 'debug'
+
+                    args '--mod', 'examplemod', '--all', '--output', file('src/generated/resources/')
+
+                    mods {
+                        examplemod {
+                            source sourceSets.main
+                            source project(':_ElegantNetworkingCommon').sourceSets.main
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    repositories {
+        mavenCentral()
+        maven { url = 'https://maven.minecraftforge.net/' }
+        maven {
+            name = "chickenbones"
+            url = "https://maven.covers1624.net/" //"https://chickenbones.net/maven" //or https://maven.covers1624.net/
+        }
+    }
+
+    configurations {
+        extraLibs { transitive = false }
+    }
+
+    dependencies {
+        if (fg5)
+            minecraft "net.minecraftforge:forge:${forge_version}"
+
+        if (project.hasProperty("ccl_version"))
+            compileOnly fg.deobf("codechicken:CodeChickenLib:${ccl_version}")
+
+        implementation(project(':_ElegantNetworkingCommon')) { transitive = false }
+        extraLibs project(':_ElegantNetworkingCommon')
+
+        compileOnly 'org.projectlombok:lombok:1.18.8'
+        annotationProcessor 'org.projectlombok:lombok:1.18.8', project(':ElegantNetworkingAnnotationProcessor')
+    }
+
+
+    compileJava {
+        options.compilerArgs += [
+                '-Aelegantnetworking.printDetails',
+                '-Aelegantnetworking.printDebug'
+        ]
+    }
+
+    jar {
+        from {
+            configurations.extraLibs.collect { it.isDirectory() ? it : zipTree(it) }
+        }
+        if (!testBuild) {
+            exclude('hohserg/elegant/networking/test/**')
+            exclude('META-INF/services/**')
+            exclude('tmp_generated/**')
+        }
+        manifest {
+            attributes([
+                    "Specification-Title"     : "elegant_networking",
+                    "Specification-Vendor"    : "elegant_networking",
+                    "Specification-Version"   : "1", // We are version 1 of ourselves
+                    "Implementation-Title"    : project.name,
+                    "Implementation-Version"  : project.version,
+                    "Implementation-Vendor"   : "elegant_networking",
+                    "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+            ])
+        }
+    }
+    jar.finalizedBy('reobfJar')
+
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+        exclude('hohserg/elegant/networking/test/**')
+    }
+
+    task javadocJar(type: Jar, dependsOn: javadoc) {
+        classifier = 'javadoc'
+        from javadoc.destinationDir
+        exclude('hohserg/elegant/networking/test/**')
+    }
+
+    artifacts {
+        archives sourcesJar
+        archives javadocJar
+    }
+
+    publishing {
+        repositories {
+            maven {
+                def localRepo = new File(project.getProjectDir(), 'repo')
+                localRepo.deleteDir()
+
+                def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+                def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
+                def localRepoUrl = localRepo.getAbsolutePath()
+
+                def usedLocation = releasesRepoUrl
+                url = usedLocation
+
+                if (usedLocation != localRepoUrl && project.hasProperty("ossrhUsername")) {
+                    credentials {
+                        username = "$ossrhUsername"
+                        password = "$ossrhPassword"
+                    }
+                }
+            }
+        }
+        publications {
+            mavenJava(MavenPublication) {
+                artifactId "elegant-networking-${mc_version}"
+                from components.java
+
+                artifact sourcesJar
+                artifact javadocJar
+
+                pom {
+                    name = "ElegantNetworking MinecraftForge ${mc_version} library"
+                    packaging = 'jar'
+                    description = "This is a runtime library of ElegantNetworking for MinecraftForge ${mc_version}"
+                    url = 'https://github.com/ElegantNetworking/ElegantNetworkingRoot'
+
+                    scm {
+                        connection = "scm:git:https://github.com/ElegantNetworking/ElegantNetworking_${mc_version}.git"
+                        developerConnection = "scm:git:git@github.com:https://github.com/ElegantNetworking/ElegantNetworking_${mc_version}.git"
+                        url = "https://github.com/ElegantNetworking/ElegantNetworking_${mc_version}"
+                    }
+
+                    licenses {
+                        license {
+                            name = 'GNU Lesser General Public License v3.0'
+                            url = "https://raw.githubusercontent.com/ElegantNetworking/ElegantNetworking_${mc_version}/master/LICENSE.md"
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id = 'hohserg'
+                            name = 'hohserg'
+                            email = 'hohserg1@yandex.ru'
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    signing {
+        required { project.hasProperty("signing.keyId") }
+        sign publishing.publications.mavenJava
+    }
 }
