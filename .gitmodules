@@ -23,5 +23,5 @@
 	path = FG5/ElegantNetworking_1.18
 	url = https://github.com/ElegantNetworking/ElegantNetworking_1.18
 [submodule "FG5/ElegantNetworking_1.7.10"]
-	path = FG5/ElegantNetworking_1.7.10
+	path = ElegantNetworking_1.7.10
 	url = https://github.com/ElegantNetworking/ElegantNetworking_1.7.10
