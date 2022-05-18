@@ -22,62 +22,58 @@ group 'io.gitlab.hohserg.elegant.networking'
 subprojects {
     println("project properties: mc_version=${mc_version}, mappings=(${mappings_channel}, ${mappings_version}), forge_version=${forge_version}")
 
-    def fg5 = this.name != "ElegantNetworking_1.7.10"
-    if (fg5) {
-        apply plugin: 'net.minecraftforge.gradle'
-        apply plugin: 'eclipse'
-        apply plugin: 'maven-publish'
-        apply plugin: 'signing'
-    }
+    apply plugin: 'net.minecraftforge.gradle'
+    apply plugin: 'eclipse'
+    apply plugin: 'maven-publish'
+    apply plugin: 'signing'
+
 
     version = "3.14"
     group = 'io.gitlab.hohserg.elegant.networking'
     archivesBaseName = "elegant-networking-${mc_version}"
 
 
-    if (fg5) {
-        minecraft {
-            mappings channel: mappings_channel, version: mappings_version
+    minecraft {
+        mappings channel: mappings_channel, version: mappings_version
 
-            runs {
-                client {
-                    workingDirectory project.file('run')
-                    property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-                    property 'forge.logging.console.level', 'debug'
+        runs {
+            client {
+                workingDirectory project.file('run')
+                property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+                property 'forge.logging.console.level', 'debug'
 
-                    mods {
-                        examplemod {
-                            source sourceSets.main
-                            source project(':_ElegantNetworkingCommon').sourceSets.main
-                        }
+                mods {
+                    examplemod {
+                        source sourceSets.main
+                        source project(':_ElegantNetworkingCommon').sourceSets.main
                     }
                 }
+            }
 
-                server {
-                    workingDirectory project.file('run')
-                    property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-                    property 'forge.logging.console.level', 'debug'
+            server {
+                workingDirectory project.file('run')
+                property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+                property 'forge.logging.console.level', 'debug'
 
-                    mods {
-                        examplemod {
-                            source sourceSets.main
-                            source project(':_ElegantNetworkingCommon').sourceSets.main
-                        }
+                mods {
+                    examplemod {
+                        source sourceSets.main
+                        source project(':_ElegantNetworkingCommon').sourceSets.main
                     }
                 }
+            }
 
-                data {
-                    workingDirectory project.file('run')
-                    property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-                    property 'forge.logging.console.level', 'debug'
+            data {
+                workingDirectory project.file('run')
+                property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+                property 'forge.logging.console.level', 'debug'
 
-                    args '--mod', 'examplemod', '--all', '--output', file('src/generated/resources/')
+                args '--mod', 'examplemod', '--all', '--output', file('src/generated/resources/')
 
-                    mods {
-                        examplemod {
-                            source sourceSets.main
-                            source project(':_ElegantNetworkingCommon').sourceSets.main
-                        }
+                mods {
+                    examplemod {
+                        source sourceSets.main
+                        source project(':_ElegantNetworkingCommon').sourceSets.main
                     }
                 }
             }
@@ -98,8 +94,7 @@ subprojects {
     }
 
     dependencies {
-        if (fg5)
-            minecraft "net.minecraftforge:forge:${forge_version}"
+        minecraft "net.minecraftforge:forge:${forge_version}"
 
         if (project.hasProperty("ccl_version"))
             compileOnly fg.deobf("codechicken:CodeChickenLib:${ccl_version}")
