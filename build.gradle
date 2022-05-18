@@ -1,4 +1,4 @@
 group 'io.gitlab.hohserg.elegant.networking'
 version '3.14'
 
-ext.testBuild=true
+ext.testBuild = true
