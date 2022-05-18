@@ -107,15 +107,16 @@ subprojects {
         implementation(project(':_ElegantNetworkingCommon')) { transitive = false }
         extraLibs project(':_ElegantNetworkingCommon')
 
-        compileOnly 'org.projectlombok:lombok:1.18.8'
-        annotationProcessor 'org.projectlombok:lombok:1.18.8', project(':ElegantNetworkingAnnotationProcessor')
+        compileOnly 'org.projectlombok:lombok:1.18.20'
+        annotationProcessor 'org.projectlombok:lombok:1.18.20', project(':ElegantNetworkingAnnotationProcessor')
     }
 
 
     compileJava {
         options.compilerArgs += [
                 '-Aelegantnetworking.printDetails',
-                '-Aelegantnetworking.printDebug'
+                '-Aelegantnetworking.printDebug',
+                '-Aelegantnetworking.warningInsteadNote'
         ]
     }
 
