@@ -25,6 +25,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: 17
+        distribution: 'zulu'
     
     - name: Show Working directory
       run: ls
