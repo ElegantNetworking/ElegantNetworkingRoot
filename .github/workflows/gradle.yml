@@ -33,8 +33,8 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x ./ElegantNetworkingRoot/gradlew
 
-    #- name: Setup forge mdk 1.7.10
-    #  run: ./ElegantNetworkingRoot/gradlew --project-dir ./ElegantNetworkingRoot/ :ElegantNetworking_1.7.10:setupDecompWorkspace
+    - name: Setup forge mdk 1.7.10
+      run: ./ElegantNetworkingRoot/gradlew --project-dir ./ElegantNetworkingRoot/ :ElegantNetworking_1.7.10:setupDecompWorkspace
     
     - name: Build with Gradle
       run: ./ElegantNetworkingRoot/gradlew --project-dir ./ElegantNetworkingRoot/ build
