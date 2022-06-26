@@ -122,3 +122,7 @@ Thx @CDAGaming for the fork of FG2.1 that compatible with gradle 5+
 Thx @Liahim85 for pretty logo
 
 Thx @sqcode06 for some readme edits
+
+Thx  @GoogeTan for testing
+
+Thx @anatawa12 for good FG1.2 fork and @GlassSpirit for help with setup anatawa12's FG
