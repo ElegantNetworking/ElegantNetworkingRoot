@@ -94,6 +94,9 @@ Just create instance of your packet and call one of send-methods
 new ExamplePacket(1, ImmutableMap.of(new MyClass("test"), "lol")).sendToDimension(world);
 ```
 
+#### Known problems
+EN is compatible with incremental compilation not so good as we want. If you have some strange issue, try to rebuild project.
+
 ## How to setup workspace for contrubuting
 1. Create folder, i.e. `ElegantNetworking`
 2. `git clone https://github.com/ElegantNetworking/ElegantNetworkingRoot.git`
