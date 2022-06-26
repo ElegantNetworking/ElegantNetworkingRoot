@@ -20,6 +20,15 @@ buildscript {
 group 'io.gitlab.hohserg.elegant.networking'
 
 subprojects {
+
+    apply plugin: 'idea'
+
+    idea {
+        module {
+            inheritOutputDirs = true
+        }
+    }
+
     println("project properties: mc_version=${mc_version}, mappings=(${mappings_channel}, ${mappings_version}), forge_version=${forge_version}")
 
     apply plugin: 'net.minecraftforge.gradle'
@@ -28,7 +37,7 @@ subprojects {
     apply plugin: 'signing'
 
 
-    version = "3.14"
+    version = "3.15"
     group = 'io.gitlab.hohserg.elegant.networking'
     archivesBaseName = "elegant-networking-${mc_version}"
 
@@ -165,7 +174,7 @@ subprojects {
                 def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
                 def localRepoUrl = localRepo.getAbsolutePath()
 
-                def usedLocation = releasesRepoUrl
+                def usedLocation = localRepoUrl
                 url = usedLocation
 
                 if (usedLocation != localRepoUrl && project.hasProperty("ossrhUsername")) {

@@ -5,7 +5,7 @@ include 'FG5'
 include(
         'ElegantNetworkingAnnotationProcessor',
 
-        //'FG5:ElegantNetworking_1.7.10',
+        'ElegantNetworking_1.7.10',
         'FG5:ElegantNetworking_1.12',
         'FG5:ElegantNetworking_1.14',
         'FG5:ElegantNetworking_1.15',
