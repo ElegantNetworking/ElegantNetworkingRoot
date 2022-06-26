@@ -19,41 +19,7 @@ jobs:
       with:
         repository: ElegantNetworking/ElegantNetworkingRoot
         path: ./ElegantNetworkingRoot
-    
-    - uses: actions/checkout@master
-      with:
-        repository: ElegantNetworking/ElegantNetworkingAnnotationProcessor
-        path: ./ElegantNetworkingAnnotationProcessor
-    
-    - uses: actions/checkout@master
-      with:
-        repository: ElegantNetworking/ElegantNetworking_1.16
-        path: ./ElegantNetworking_1.16
-    
-    - uses: actions/checkout@master
-      with:
-        repository: ElegantNetworking/ElegantNetworking_1.15
-        path: ./ElegantNetworking_1.15
-    
-    - uses: actions/checkout@master
-      with:
-        repository: ElegantNetworking/ElegantNetworking_1.14
-        path: ./ElegantNetworking_1.14
-        
-    - uses: actions/checkout@master
-      with:
-        repository: ElegantNetworking/ElegantNetworking_1.12
-        path: ./ElegantNetworking_1.12
-        
-    - uses: actions/checkout@master
-      with:
-        repository: ElegantNetworking/ElegantNetworking_1.7.10
-        path: ./ElegantNetworking_1.7.10
-
-    - uses: actions/checkout@master
-      with:
-        repository: ElegantNetworking/ElegantNetworkingCommon
-        path: ./ElegantNetworkingCommon
+        submodules: recursive
 
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
@@ -65,9 +31,6 @@ jobs:
     
     - name: Grant execute permission for gradlew
       run: chmod +x ./ElegantNetworkingRoot/gradlew
-
-    #- name: Setup forge mdk 1.12
-    #  run: ./ElegantNetworkingRoot/gradlew --project-dir ./ElegantNetworkingRoot/ :ElegantNetworking_1.12:setupDecompWorkspace
 
     #- name: Setup forge mdk 1.7.10
     #  run: ./ElegantNetworkingRoot/gradlew --project-dir ./ElegantNetworkingRoot/ :ElegantNetworking_1.7.10:setupDecompWorkspace
