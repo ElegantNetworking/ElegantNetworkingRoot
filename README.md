@@ -41,14 +41,14 @@ And that's all you need!
 1. Add to build.gradle:
 ```groowy
 dependencies {
-    implementation "io.gitlab.hohserg.elegant.networking:elegant-networking-1.12:3.10"
-    annotationProcessor  "io.gitlab.hohserg.elegant.networking:annotation-processor:3.10"   //use compileOnly or `apt` plugin for gradle less that 4.8
+    implementation "io.gitlab.hohserg.elegant.networking:elegant-networking-1.12:3.14"
+    annotationProcessor  "io.gitlab.hohserg.elegant.networking:annotation-processor:3.14"   //use compileOnly or `apt` plugin for gradle less that 4.8
 }
 ```
 2. Perform Gradle refresh in your ide
 3. If you using Lombok than annotation processor of Lombok must be applied before annotation processor of ElegantNetworking, like:
 ```groowy
-annotationProcessor 'org.projectlombok:lombok:1.18.8', "io.gitlab.hohserg.elegant.networking:annotation-processor:2.7"
+annotationProcessor 'org.projectlombok:lombok:1.18.8', "io.gitlab.hohserg.elegant.networking:annotation-processor:3.14"
 ```
 ### Creating packet
 1. Create new class for packet
