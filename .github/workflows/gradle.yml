@@ -21,10 +21,10 @@ jobs:
         path: ./ElegantNetworkingRoot
         submodules: recursive
 
-    - name: Set up JDK 17
-      uses: actions/setup-java@v2
+    - name: Setup Java JDK
+      uses: actions/setup-java@v3.4.0
       with:
-        java-version: 17
+        java-version: 8
         distribution: 'zulu'
     
     - name: Show Working directory
