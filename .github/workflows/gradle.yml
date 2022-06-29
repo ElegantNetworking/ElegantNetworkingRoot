@@ -34,7 +34,7 @@ jobs:
       run: chmod +x ./ElegantNetworkingRoot/gradlew
 
     - name: Setup forge mdk 1.7.10
-      run: ./ElegantNetworkingRoot/gradlew --project-dir ./ElegantNetworkingRoot/ :ElegantNetworking_1.7.10:setupDecompWorkspace -Dorg.gradle.jvmargs=-Xmx3G
+      run: ./ElegantNetworkingRoot/gradlew -Dorg.gradle.jvmargs=-Xmx3G --project-dir ./ElegantNetworkingRoot/ :ElegantNetworking_1.7.10:setupDecompWorkspace
     
     - name: Build with Gradle
-      run: ./ElegantNetworkingRoot/gradlew --project-dir ./ElegantNetworkingRoot/ -Dorg.gradle.jvmargs=-Xmx3G build
+      run: ./ElegantNetworkingRoot/gradlew -Dorg.gradle.jvmargs=-Xmx3G --project-dir ./ElegantNetworkingRoot/ build
