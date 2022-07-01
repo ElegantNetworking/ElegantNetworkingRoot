@@ -11,7 +11,8 @@ include(
         'FG5:ElegantNetworking_1.15',
         'FG5:ElegantNetworking_1.16',
         'FG5:ElegantNetworking_1.17',
-        'FG5:ElegantNetworking_1.18'
+        'FG5:ElegantNetworking_1.18',
+        'FG5:ElegantNetworking_1.19'
 )
 include '_ElegantNetworkingCommon'
 project(':_ElegantNetworkingCommon').projectDir = file("ElegantNetworkingCommon")
