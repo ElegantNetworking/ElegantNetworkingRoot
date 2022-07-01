@@ -10,10 +10,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:5.1.27'
-        classpath('com.anatawa12.forge:ForgeGradle:1.2-1.0.+') {
-            changing = true
-        }
+        classpath 'net.minecraftforge.gradle:ForgeGradle:5.1.48'
     }
 }
 
