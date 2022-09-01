@@ -34,7 +34,7 @@ subprojects {
     apply plugin: 'signing'
 
 
-    version = "3.15"
+    version = "3.16"
     group = 'io.gitlab.hohserg.elegant.networking'
     archivesBaseName = "elegant-networking-${mc_version}"
 
@@ -164,17 +164,9 @@ subprojects {
     publishing {
         repositories {
             maven {
-                def localRepo = new File(project.getProjectDir(), 'repo')
-                localRepo.deleteDir()
+                url = targetRepo
 
-                def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
-                def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
-                def localRepoUrl = localRepo.getAbsolutePath()
-
-                def usedLocation = localRepoUrl
-                url = usedLocation
-
-                if (usedLocation != localRepoUrl && project.hasProperty("ossrhUsername")) {
+                if (targetRepo != localRepoUrl && project.hasProperty("ossrhUsername")) {
                     credentials {
                         username = "$ossrhUsername"
                         password = "$ossrhPassword"
