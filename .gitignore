@@ -39,3 +39,5 @@ hs_err_pid*
 .settings/
 *.launch
 gradle.properties
+/repo/
+
