@@ -1,4 +1,14 @@
 group 'io.gitlab.hohserg.elegant.networking'
-version '3.15'
+version '3.16'
 
-ext.testBuild = true
+ext.testBuild = false
+
+
+def localRepo = new File(project(":").getProjectDir(), 'repo')
+localRepo.deleteDir()
+
+ext.localRepoUrl = localRepo.getAbsolutePath()
+def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
+
+ext.targetRepo = localRepoUrl
