@@ -209,6 +209,12 @@ subprojects {
                         }
                     }
                 }
+                pom.withXml {
+                    def pomNode = asNode()
+                    pomNode.dependencies.'*'.each() {
+                        it.parent().remove(it)
+                    }
+                }
             }
         }
     }
