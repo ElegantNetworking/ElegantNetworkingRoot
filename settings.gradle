@@ -16,4 +16,8 @@ include(
 )
 include '_ElegantNetworkingCommon'
 project(':_ElegantNetworkingCommon').projectDir = file("ElegantNetworkingCommon")
+include '_ElegantNetworkingCommon:Common_from_1.14'
+include '_ElegantNetworkingCommon:Common_from_1.14:ForgeDummy'
+include '_ElegantNetworkingCommon:Common_from_1.17'
+include '_ElegantNetworkingCommon:Common_from_1.17:ForgeDummy'
 

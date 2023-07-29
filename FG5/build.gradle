@@ -10,7 +10,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:5.1.48'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:5.1.65'
     }
 }
 
@@ -34,7 +34,7 @@ subprojects {
     apply plugin: 'signing'
 
 
-    version = "3.16"
+    version = "3.17"
     group = 'io.gitlab.hohserg.elegant.networking'
     archivesBaseName = "elegant-networking-${mc_version}"
 
@@ -97,16 +97,15 @@ subprojects {
 
     configurations {
         extraLibs { transitive = false }
+        implementation.extendsFrom extraLibs
     }
 
     dependencies {
         minecraft "net.minecraftforge:forge:${forge_version}"
 
-        if (project.hasProperty("ccl_version"))
-            compileOnly fg.deobf("codechicken:CodeChickenLib:${ccl_version}")
-
-        implementation(project(':_ElegantNetworkingCommon')) { transitive = false }
-        extraLibs project(':_ElegantNetworkingCommon')
+        extraLibs project(":_ElegantNetworkingCommon")
+        if (project.hasProperty("sub_common"))
+            extraLibs project(":_ElegantNetworkingCommon:${sub_common}")
 
         compileOnly 'org.projectlombok:lombok:1.18.20'
         annotationProcessor 'org.projectlombok:lombok:1.18.20', project(':ElegantNetworkingAnnotationProcessor')
@@ -143,6 +142,17 @@ subprojects {
         }
     }
     jar.finalizedBy('reobfJar')
+
+    processResources {
+        inputs.property "version", version
+
+        from('./src/main/unprepared_resources/') {
+            include "*"
+            include "*/*"
+
+            expand "mod_version": version
+        }
+    }
 
     task sourcesJar(type: Jar, dependsOn: classes) {
         classifier = 'sources'
