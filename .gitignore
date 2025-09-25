@@ -40,4 +40,4 @@ hs_err_pid*
 *.launch
 gradle.properties
 /repo/
-
+/test/
